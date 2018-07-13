@@ -14,7 +14,7 @@ contract depositToken {
         uint deposiAmount;
         uint percentAmount;
     }
-        uint depositCount=0;//колличество вкладоы
+        uint depositCount=0;//колличество вкладов
         address dev;
         uint[] book;
     mapping (uint => depositStruct) public depositList; //создание словаря где ключ id токена, а значение список параметров
@@ -85,7 +85,7 @@ contract depositToken {
     function ownerOf(uint _tokenId) public view returns (address){
             return depositList[_tokenId].owner;
     }
-    function isContract(address addr) public returns (bool) {
+    function isContract(address addr) public view returns (bool) {
       uint size;
     assembly { size := extcodesize(addr) }
     return size > 0;
